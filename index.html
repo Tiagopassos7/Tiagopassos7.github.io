@@ -31,8 +31,23 @@
   <p>“Desde que nossos caminhos se cruzaram, tudo ganhou um novo sentido. Não são só os dias que passam — são os momentos, os sorrisos e os sonhos que compartilhamos. Cada batida do relógio é mais um segundo de amor crescendo entre a gente. Tiago & Ricaely, duas metades que escolheram caminhar juntas, um amor que conta o tempo… não em horas, mas em sentimentos.”</p>
 </div>
 
-<audio id="musica" src="musica.mp3" autoplay loop></audio>
+<audio id="romanticAudio" src="musica.mp3"></audio>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("romanticAudio");
+
+    function playAudioOnce() {
+      audio.play().catch((e) => {
+        console.log("Autoplay bloqueado. Aguardando interação do usuário.");
+      });
+      document.removeEventListener("click", playAudioOnce);
+    }
+
+    document.addEventListener("click", playAudioOnce);
+  });
+</script>
+  
 <script>
 // Data de início
 const inicio = new Date(2025, 0, 18); // Janeiro é mês 0
